@@ -16,4 +16,11 @@ codesign --force --sign - "$APP"
 codesign --verify --verbose "$APP"
 
 ditto -c -k --keepParent "$APP" dist/MDMCheck-macos-universal.zip
+
+# DMG kiểu kéo-thả: app nằm cạnh lối tắt tới thư mục Applications.
+mkdir -p dist/dmg
+cp -R "$APP" dist/dmg/
+ln -s /Applications dist/dmg/Applications
+hdiutil create -volname "MDMCheck" -srcfolder dist/dmg -ov -format UDZO dist/MDMCheck.dmg
+rm -rf dist/dmg
 ls -lh dist
