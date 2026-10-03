@@ -1,0 +1,42 @@
+name: build
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test
+        run: swift test
+
+      - name: Build universal (arm64 + x86_64)
+        run: swift build -c release --arch arm64 --arch x86_64
+
+      - name: Bundle .app
+        run: bash scripts/bundle.sh
+
+      # Chạy thử trên máy ảo của GitHub để thấy kết quả thật của lệnh profiles. Không làm hỏng build.
+      - name: Smoke test (CLI)
+        run: |
+          dist/MDMCheck.app/Contents/MacOS/MDMCheck --cli || echo "exit code: $?"
+          sudo dist/MDMCheck.app/Contents/MacOS/MDMCheck --cli || echo "exit code: $?"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MDMCheck-macos-universal
+          path: dist/MDMCheck-macos-universal.zip
+          if-no-files-found: error
+
+      # Đẩy tag v* thì đính file zip vào một bản phát hành để tải không cần đăng nhập.
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/MDMCheck-macos-universal.zip --title "MDMCheck $GITHUB_REF_NAME" --generate-notes --prerelease
