@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MDM Checker: kiểm tra MacBook cũ có dính MDM, ADE trước khi mua</title>
+<meta name="description" content="App macOS miễn phí, mã nguồn mở. Hỏi thẳng Apple xem máy Mac cũ có thuộc công ty hay trường học nào không và trả lời: CLEAN, ENROLLED hay ADE RISK.">
+<link rel="canonical" href="https://nguyenquocanhz.github.io/mdm-check/">
+<link rel="alternate" hreflang="vi" href="https://nguyenquocanhz.github.io/mdm-check/">
+<link rel="alternate" hreflang="en" href="https://nguyenquocanhz.github.io/mdm-check/en/">
+<link rel="alternate" hreflang="x-default" href="https://nguyenquocanhz.github.io/mdm-check/en/">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MDM Checker">
+<meta property="og:title" content="MDM Checker: kiểm tra MacBook cũ có dính MDM, ADE trước khi mua">
+<meta property="og:description" content="App macOS miễn phí, mã nguồn mở. Hỏi thẳng Apple xem máy Mac cũ có thuộc công ty hay trường học nào không và trả lời: CLEAN, ENROLLED hay ADE RISK.">
+<meta property="og:url" content="https://nguyenquocanhz.github.io/mdm-check/">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "MDM Checker", "alternateName": "MDMCheck", "description": "App macOS miễn phí, mã nguồn mở. Hỏi thẳng Apple xem máy Mac cũ có thuộc công ty hay trường học nào không và trả lời: CLEAN, ENROLLED hay ADE RISK.", "url": "https://nguyenquocanhz.github.io/mdm-check/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 12 or later", "softwareVersion": "0.1.1", "downloadUrl": "https://github.com/nguyenquocanhz/mdm-check/releases/latest/download/MDMCheck.dmg", "license": "https://opensource.org/licenses/MIT", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "codeRepository": "https://github.com/nguyenquocanhz/mdm-check", "inLanguage": "vi"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "MDM và ADE khác nhau thế nào?", "acceptedAnswer": {"@type": "Answer", "text": "MDM là hồ sơ quản lý đang cài trên máy, gỡ được. ADE (tên cũ là DEP) là việc Apple ghi số serial vào tài khoản của một tổ chức: máy sẽ tự cài lại MDM sau mỗi lần xoá, và chỉ tổ chức đó gỡ được."}}, {"@type": "Question", "name": "App có gửi số serial của tôi đi đâu không?", "acceptedAnswer": {"@type": "Answer", "text": "Không. App chỉ chạy lệnh profiles có sẵn của macOS; chính lệnh đó hỏi máy chủ Apple. App không có máy chủ riêng, không có tài khoản, không theo dõi."}}, {"@type": "Question", "name": "Vì sao macOS chặn khi mở app?", "acceptedAnswer": {"@type": "Answer", "text": "App chưa được Apple chứng nhận (notarize). Vào System Settings, mục Privacy & Security, kéo xuống và bấm Open Anyway."}}, {"@type": "Question", "name": "Kiểm tra iPhone, iPad được không?", "acceptedAnswer": {"@type": "Answer", "text": "Không. Apple không cho app trên iPhone đọc trạng thái này. Hãy yêu cầu người bán xoá máy và kích hoạt lại trước mặt bạn: máy dính ADE sẽ hiện màn Remote Management."}}, {"@type": "Question", "name": "App có gỡ được MDM không?", "acceptedAnswer": {"@type": "Answer", "text": "Không. App chỉ phát hiện, không gỡ và không bẻ khoá."}}]}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol><symbol id="i-shield-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m14.5 9.5-5 5"/><path d="m9.5 9.5 5 5"/></symbol><symbol id="i-shield-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol></svg>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg>MDM Checker</a>
+  <nav aria-label="Điều hướng"><a href="#cach-dung">Cách dùng</a><a href="#cau-hoi">Câu hỏi</a><a href="https://github.com/nguyenquocanhz/mdm-check">GitHub</a><a href="en/">English</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <div class="hero-copy">
+    <p class="badge">Miễn phí · Mã nguồn mở · Bản 0.1.1</p>
+    <h1>Kiểm tra MacBook cũ có dính MDM trước khi trả tiền</h1>
+    <p class="lead">MDM Checker hỏi thẳng Apple xem máy Mac có thuộc công ty hay trường học nào không, rồi trả lời bằng một chữ: sạch, đang bị quản lý, hay không nên mua.</p>
+    <div class="cta"><a class="btn btn-primary" href="https://github.com/nguyenquocanhz/mdm-check/releases/latest/download/MDMCheck.dmg"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Tải cho macOS</a><a class="btn" href="https://github.com/nguyenquocanhz/mdm-check">Xem mã nguồn<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    <p class="meta">macOS 12 trở lên · chip Apple và Intel · 150 KB</p>
+  </div>
+  <figure class="mock">
+    <div class="window" role="img" aria-label="Minh hoạ giao diện app với dữ liệu mẫu">
+      <div class="titlebar"><i></i><i></i><i></i><span>MDM Checker</span></div>
+      <div class="window-body">
+        <div class="verdict tone-ade"><svg class="icon" aria-hidden="true"><use href="#i-shield-x"/></svg><div><p class="code">MDM: ADE RISK</p><p class="verdict-title">Máy thuộc một tổ chức</p><p>Apple đang gán số serial này cho một tổ chức. Xoá máy cài lại thì máy tự đăng ký lại MDM.</p></div></div>
+        <p class="advice"><b>Nên làm gì:</b> Không nên mua. Chỉ tổ chức đó mới gỡ được máy.</p>
+        <ul class="checks tone-ade"><li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Máy đang cài MDM?</span><b>Có</b></li><li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Đăng ký qua ADE/DEP?</span><b>Có</b></li><li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Apple gán số serial vào tổ chức?</span><b>Có</b></li></ul>
+      </div>
+    </div>
+    <figcaption>Minh hoạ giao diện app với dữ liệu mẫu</figcaption>
+  </figure>
+</div></section>
+<section class="section"><div class="wrap">
+  <h2>Bốn kết luận, mỗi kết luận một việc cần làm</h2><p class="section-lead">Bạn không cần đọc kết quả lệnh. App đọc và nói thẳng nên làm gì.</p>
+  <div class="cards"><article class="card tone-clean"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg><p class="code">CLEAN</p><h3>Máy sạch</h3><p>Không có MDM, Apple xác nhận số serial không thuộc tổ chức nào.</p></article><article class="card tone-enrolled"><svg class="icon" aria-hidden="true"><use href="#i-shield-alert"/></svg><p class="code">ENROLLED</p><h3>Máy đang bị quản lý</h3><p>Máy đang cài hồ sơ quản lý từ xa. Người bán phải gỡ trước khi bạn trả tiền.</p></article><article class="card tone-ade"><svg class="icon" aria-hidden="true"><use href="#i-shield-x"/></svg><p class="code">ADE RISK</p><h3>Máy thuộc một tổ chức</h3><p>Số serial thuộc một công ty hoặc trường học. Xoá máy cũng không hết. Đừng mua.</p></article><article class="card tone-unknown"><svg class="icon" aria-hidden="true"><use href="#i-shield-question"/></svg><p class="code">CHƯA XÁC ĐỊNH</p><h3>Chưa đủ dữ liệu</h3><p>Thiếu mạng hoặc thiếu mật khẩu admin. App không bao giờ báo sạch khi chưa đủ dữ liệu.</p></article></div>
+</div></section>
+<section class="section" id="cach-dung"><div class="wrap">
+  <h2>Dùng trong ba bước</h2><p class="section-lead">Mất khoảng một phút, ngay tại chỗ xem máy.</p>
+  <ol class="steps"><li><span class="num">1</span><h3>Tải và mở app</h3><p>Chép file <code>MDMCheck.dmg</code> sang máy cần kiểm tra, mở ra và chạy app. macOS chặn thì vào System Settings, mục Privacy &amp; Security, bấm Open Anyway.</p></li><li><span class="num">2</span><h3>Bấm “Hỏi Apple về ADE”</h3><p>Nhập mật khẩu admin của máy. Máy phải đang có mạng.</p></li><li><span class="num">3</span><h3>Đọc kết luận</h3><p>Chép báo cáo để gửi người bán hoặc lưu làm bằng chứng.</p></li></ol>
+</div></section>
+<section class="section"><div class="wrap">
+  <h2>Vì sao tin được</h2><p class="section-lead">App không có máy chủ riêng và không tra số serial qua bên thứ ba.</p>
+  <div class="split"><div><h3>Cách hoạt động</h3><ul><li>Chạy đúng hai lệnh có sẵn của macOS: <code>profiles status</code> và <code>profiles show</code>.</li><li>Câu trả lời về ADE đến từ máy chủ Apple.</li><li>Mã nguồn mở, giấy phép MIT, build công khai trên <a href="https://github.com/nguyenquocanhz/mdm-check/actions">GitHub Actions</a>.</li></ul></div><div><h3>Giới hạn</h3><ul><li>Chỉ dành cho Mac. iPhone và iPad phải kiểm tay trong Cài đặt.</li><li>Cần mạng để hỏi Apple. Mất mạng thì kết luận là chưa xác định, không phải sạch.</li><li>Chỉ phát hiện. App không gỡ và không bẻ khoá MDM.</li></ul></div></div>
+</div></section>
+<section class="section faq" id="cau-hoi"><div class="wrap">
+  <h2>Câu hỏi thường gặp</h2>
+  <details open><summary>MDM và ADE khác nhau thế nào?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>MDM là hồ sơ quản lý đang cài trên máy, gỡ được. ADE (tên cũ là DEP) là việc Apple ghi số serial vào tài khoản của một tổ chức: máy sẽ tự cài lại MDM sau mỗi lần xoá, và chỉ tổ chức đó gỡ được.</p></details><details><summary>App có gửi số serial của tôi đi đâu không?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Không. App chỉ chạy lệnh profiles có sẵn của macOS; chính lệnh đó hỏi máy chủ Apple. App không có máy chủ riêng, không có tài khoản, không theo dõi.</p></details><details><summary>Vì sao macOS chặn khi mở app?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>App chưa được Apple chứng nhận (notarize). Vào System Settings, mục Privacy &amp; Security, kéo xuống và bấm Open Anyway.</p></details><details><summary>Kiểm tra iPhone, iPad được không?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Không. Apple không cho app trên iPhone đọc trạng thái này. Hãy yêu cầu người bán xoá máy và kích hoạt lại trước mặt bạn: máy dính ADE sẽ hiện màn Remote Management.</p></details><details><summary>App có gỡ được MDM không?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Không. App chỉ phát hiện, không gỡ và không bẻ khoá.</p></details>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><span>MDM Checker · mã nguồn mở, giấy phép MIT</span><nav aria-label="Footer"><a href="https://github.com/nguyenquocanhz/mdm-check">GitHub</a><a href="https://github.com/nguyenquocanhz/mdm-check/releases">Bản phát hành</a><a href="en/">English</a></nav></div></footer>
+</body>
+</html>

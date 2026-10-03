@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MDM Checker: check a used MacBook for MDM and ADE before you buy</title>
+<meta name="description" content="Free, open-source macOS app. It asks Apple whether a used Mac belongs to a company or school and answers CLEAN, ENROLLED or ADE RISK.">
+<link rel="canonical" href="https://nguyenquocanhz.github.io/mdm-check/en/">
+<link rel="alternate" hreflang="vi" href="https://nguyenquocanhz.github.io/mdm-check/">
+<link rel="alternate" hreflang="en" href="https://nguyenquocanhz.github.io/mdm-check/en/">
+<link rel="alternate" hreflang="x-default" href="https://nguyenquocanhz.github.io/mdm-check/en/">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MDM Checker">
+<meta property="og:title" content="MDM Checker: check a used MacBook for MDM and ADE before you buy">
+<meta property="og:description" content="Free, open-source macOS app. It asks Apple whether a used Mac belongs to a company or school and answers CLEAN, ENROLLED or ADE RISK.">
+<meta property="og:url" content="https://nguyenquocanhz.github.io/mdm-check/en/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "MDM Checker", "alternateName": "MDMCheck", "description": "Free, open-source macOS app. It asks Apple whether a used Mac belongs to a company or school and answers CLEAN, ENROLLED or ADE RISK.", "url": "https://nguyenquocanhz.github.io/mdm-check/en/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 12 or later", "softwareVersion": "0.1.1", "downloadUrl": "https://github.com/nguyenquocanhz/mdm-check/releases/latest/download/MDMCheck.dmg", "license": "https://opensource.org/licenses/MIT", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "codeRepository": "https://github.com/nguyenquocanhz/mdm-check", "inLanguage": "en"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between MDM and ADE?", "acceptedAnswer": {"@type": "Answer", "text": "MDM is a management profile installed on the Mac; it can be removed. ADE (formerly DEP) means Apple has the serial number recorded under an organization's account: the Mac reinstalls MDM after every erase, and only that organization can release it."}}, {"@type": "Question", "name": "Does the app send my serial number anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. It only runs the profiles command built into macOS; that command contacts Apple. The app has no server, no account and no tracking."}}, {"@type": "Question", "name": "Why does macOS block the app?", "acceptedAnswer": {"@type": "Answer", "text": "The app is not notarized by Apple. Open System Settings, Privacy & Security, scroll down and click Open Anyway."}}, {"@type": "Question", "name": "Can it check an iPhone or iPad?", "acceptedAnswer": {"@type": "Answer", "text": "No. Apple does not let iPhone apps read this state. Ask the seller to erase and re-activate the device in front of you: an ADE device shows a Remote Management screen."}}, {"@type": "Question", "name": "Can it remove MDM?", "acceptedAnswer": {"@type": "Answer", "text": "No. It only detects management. It does not remove or bypass it."}}]}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol><symbol id="i-shield-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m14.5 9.5-5 5"/><path d="m9.5 9.5 5 5"/></symbol><symbol id="i-shield-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol></svg>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="./"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg>MDM Checker</a>
+  <nav aria-label="Main"><a href="#how">How to use</a><a href="#faq">FAQ</a><a href="https://github.com/nguyenquocanhz/mdm-check">GitHub</a><a href="../">Tiếng Việt</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <div class="hero-copy">
+    <p class="badge">Free · Open source · Version 0.1.1</p>
+    <h1>Check a used MacBook for MDM before you pay</h1>
+    <p class="lead">MDM Checker asks Apple whether a Mac belongs to a company or a school, then answers in one word: clean, managed, or do not buy.</p>
+    <div class="cta"><a class="btn btn-primary" href="https://github.com/nguyenquocanhz/mdm-check/releases/latest/download/MDMCheck.dmg"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Download for macOS</a><a class="btn" href="https://github.com/nguyenquocanhz/mdm-check">View source<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    <p class="meta">macOS 12 or later · Apple silicon and Intel · 150 KB</p>
+  </div>
+  <figure class="mock">
+    <div class="window" role="img" aria-label="Illustration of the app with sample data">
+      <div class="titlebar"><i></i><i></i><i></i><span>MDM Checker</span></div>
+      <div class="window-body">
+        <div class="verdict tone-ade"><svg class="icon" aria-hidden="true"><use href="#i-shield-x"/></svg><div><p class="code">MDM: ADE RISK</p><p class="verdict-title">This Mac belongs to an organization</p><p>Apple has this serial number assigned to an organization. The Mac re-enrolls in MDM after every erase.</p></div></div>
+        <p class="advice"><b>What to do:</b> Do not buy. Only that organization can release it.</p>
+        <ul class="checks tone-ade"><li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>MDM profile installed?</span><b>Yes</b></li><li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Enrolled via ADE/DEP?</span><b>Yes</b></li><li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Serial assigned by Apple?</span><b>Yes</b></li></ul>
+      </div>
+    </div>
+    <figcaption>Illustration of the app with sample data</figcaption>
+  </figure>
+</div></section>
+<section class="section"><div class="wrap">
+  <h2>Four verdicts, each with one thing to do</h2><p class="section-lead">You do not need to read command output. The app reads it and tells you what to do.</p>
+  <div class="cards"><article class="card tone-clean"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg><p class="code">CLEAN</p><h3>Clean</h3><p>No MDM profile, and Apple confirms the serial number is not assigned to any organization.</p></article><article class="card tone-enrolled"><svg class="icon" aria-hidden="true"><use href="#i-shield-alert"/></svg><p class="code">ENROLLED</p><h3>Managed right now</h3><p>A remote-management profile is installed. The seller must remove it before you pay.</p></article><article class="card tone-ade"><svg class="icon" aria-hidden="true"><use href="#i-shield-x"/></svg><p class="code">ADE RISK</p><h3>Belongs to an organization</h3><p>The serial number belongs to a company or school. Erasing does not help. Do not buy.</p></article><article class="card tone-unknown"><svg class="icon" aria-hidden="true"><use href="#i-shield-question"/></svg><p class="code">UNDETERMINED</p><h3>Not enough data</h3><p>No network or no admin password. The app never reports clean on incomplete data.</p></article></div>
+</div></section>
+<section class="section" id="how"><div class="wrap">
+  <h2>Three steps</h2><p class="section-lead">About a minute, right where you inspect the Mac.</p>
+  <ol class="steps"><li><span class="num">1</span><h3>Download and open the app</h3><p>Copy <code>MDMCheck.dmg</code> to the Mac you are inspecting, open it and run the app. If macOS blocks it, go to System Settings, Privacy &amp; Security, and click Open Anyway.</p></li><li><span class="num">2</span><h3>Click “Hỏi Apple về ADE”</h3><p>That button asks Apple about ADE. Enter the Mac's admin password. The Mac must be online. The app interface is in Vietnamese for now.</p></li><li><span class="num">3</span><h3>Read the verdict</h3><p>Copy the report to send to the seller or keep as proof.</p></li></ol>
+</div></section>
+<section class="section"><div class="wrap">
+  <h2>Why you can trust it</h2><p class="section-lead">The app has no server of its own and uses no third-party serial lookup.</p>
+  <div class="split"><div><h3>How it works</h3><ul><li>Runs the two commands that ship with macOS: <code>profiles status</code> and <code>profiles show</code>.</li><li>The ADE answer comes from Apple's own servers.</li><li>Open source under the MIT license, built in public on <a href="https://github.com/nguyenquocanhz/mdm-check/actions">GitHub Actions</a>.</li></ul></div><div><h3>Limits</h3><ul><li>Mac only. iPhone and iPad must be checked by hand in Settings.</li><li>Needs internet to ask Apple. Offline, the verdict is undetermined, not clean.</li><li>Detection only. It does not remove or bypass MDM.</li></ul></div></div>
+</div></section>
+<section class="section faq" id="faq"><div class="wrap">
+  <h2>Frequently asked questions</h2>
+  <details open><summary>What is the difference between MDM and ADE?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>MDM is a management profile installed on the Mac; it can be removed. ADE (formerly DEP) means Apple has the serial number recorded under an organization&#x27;s account: the Mac reinstalls MDM after every erase, and only that organization can release it.</p></details><details><summary>Does the app send my serial number anywhere?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>No. It only runs the profiles command built into macOS; that command contacts Apple. The app has no server, no account and no tracking.</p></details><details><summary>Why does macOS block the app?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>The app is not notarized by Apple. Open System Settings, Privacy &amp; Security, scroll down and click Open Anyway.</p></details><details><summary>Can it check an iPhone or iPad?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>No. Apple does not let iPhone apps read this state. Ask the seller to erase and re-activate the device in front of you: an ADE device shows a Remote Management screen.</p></details><details><summary>Can it remove MDM?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>No. It only detects management. It does not remove or bypass it.</p></details>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><span>MDM Checker · open source, MIT license</span><nav aria-label="Footer"><a href="https://github.com/nguyenquocanhz/mdm-check">GitHub</a><a href="https://github.com/nguyenquocanhz/mdm-check/releases">Releases</a><a href="../">Tiếng Việt</a></nav></div></footer>
+</body>
+</html>
